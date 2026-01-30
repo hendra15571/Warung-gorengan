@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warung Gorengan</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ===== GLOBAL ===== */
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#ffcc70,#ff9f1c);
+}
+
+/* ===== MENU BUTTON ===== */
+.menu-btn{
+    position:fixed;
+    top:15px;
+    left:15px;
+    background:#ff7a00;
+    color:#fff;
+    padding:10px 12px;
+    border-radius:10px;
+    font-size:20px;
+    cursor:pointer;
+    z-index:1001;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+    position:fixed;
+    top:0;
+    left:-220px;
+    width:220px;
+    height:100%;
+    background:#1e1e2f;
+    padding-top:70px;
+    transition:.4s;
+    z-index:1000;
+}
+
+.sidebar.active{ left:0; }
+
+.sidebar a{
+    display:flex;
+    gap:12px;
+    padding:14px 20px;
+    color:#fff;
+    text-decoration:none;
+}
+
+.sidebar a i{ color:#ff9f1c; }
+
+/* ===== OVERLAY ===== */
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.4);
+    display:none;
+    z-index:999;
+}
+.overlay.active{ display:block; }
+
+/* ===== CARD ===== */
+.card{
+    width:90%;
+    max-width:420px;
+    background:#fffaf0;
+    margin:90px auto 40px;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+}
+
+h2{
+    text-align:center;
+    color:#8d4a00;
+}
+
+.sub{
+    text-align:center;
+    font-size:14px;
+    color:#a65c00;
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    margin-top:12px;
+    font-weight:bold;
+    color:#5a2e00;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #d6a15c;
+    margin-top:5px;
+}
+
+/* ===== TABEL MENU ===== */
+.menu-table{
+    width:100%;
+    margin-top:10px;
+    border-collapse:collapse;
+    user-select:none;
+    pointer-events:none;
+    background:#fff3e0;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.menu-table th,
+.menu-table td{
+    padding:10px;
+    border-bottom:1px dashed #e0b070;
+    font-size:14px;
+}
+
+.menu-table th{
+    background:#ffd59a;
+    color:#7a3d00;
+    text-align:left;
+}
+
+.menu-emoji{
+    font-size:20px;
+    margin-right:6px;
+}
+
+/* ===== BUTTON ===== */
+button{
+    width:100%;
+    margin-top:20px;
+    padding:12px;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(135deg,#ff9f1c,#ff6f00);
+    color:#fff;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+    background:#1e1e2f;
+    color:#fff;
+    padding:25px 15px;
+    text-align:center;
+}
+
+.footer h3{ color:#ff9f1c; }
+
+.footer a{
+    color:#fff;
+    margin:0 8px;
+    font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU BUTTON -->
+<div class="menu-btn" onclick="openMenu()">
+    <i class="fas fa-bars"></i>
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+    <a href="A.html"><i class="fas fa-house"></i> Home</a>
+    <a href="Menu.html"><i class="fas fa-utensils"></i> Menu</a>
+    <a href="B.html"><i class="fas fa-cart-shopping"></i> Pesanan</a>
+    <a href="Z.html"><i class="fas fa-phone"></i> Kontak</a>
+</div>
+
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+<!-- FORM -->
+<div class="card">
+    <h2>Pesan Gorengan 🍟🥟</h2>
+    <div class="sub">Hangat • Renyah • Dadakan 😋</div>
+
+    <form>
+        <label>Nama</label>
+        <input type="text" required>
+
+        <label>Menu (ketik pesanan)</label>
+        <input type="text" placeholder="Contoh: Bakwan 5, Tahu Isi 3" required>
+
+        <label>Daftar Menu 🍽️</label>
+        <table class="menu-table">
+            <tr>
+                <th>Menu</th>
+                <th>Harga</th>
+            </tr>
+            <tr>
+                <td><span class="menu-emoji">🥟</span> Bakwan</td>
+                <td>Rp 2.000</td>
+                <tr>
+                
+            </tr>
+            <tr>
+                <td><span class="menu-emoji">🍌</span> Pisang Goreng</td>
+                <td>Rp 2.500</td>
+            </tr>
+            <tr>
+                <td><span class="menu-emoji">🧀</span> Tahu Isi</td>
+                <td>Rp 2.500</td>
+            </tr>
+            <tr>
+                <td><span class="menu-emoji">🍘</span> Tempe Goreng</td>
+                <td>Rp 2.000</td>
+            </tr>
+            <tr>
+            <td><span class="menu-emoji">☕️</span> kopi</td>
+                <td>Rp 5.000</td>
+                </tr>
+                <td><span class="menu-emoji">🥂</span> es jeruk</td>
+                <td>Rp 7.000</td>
+                </tr>
+                <tr>
+                 <td><span class="menu-emoji">🧃</span> segar sari</td>
+                <td>Rp 7.000</td>
+                </tr>
+                <tr>
+                 <td><span class="menu-emoji">🫖</span> teh manis</td>
+                <td>Rp 5.000</td>
+                </tr>
+                <tr>
+                 <td><span class="menu-emoji">🍵</span> es teh</td>
+                <td>Rp 7.000</td>
+                </tr>
+        </table>
+
+        <label>Alamat</label>
+        <input type="text" required>
+
+        <button>🛒 Pesan Sekarang</button>
+    </form>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <h3>Warung Gorengan</h3>
+    <p>Hubungi kami</p>
+    <a href="https://wa.me/6282261858992"><i class="fab fa-whatsapp"></i></a>
+    <a href="mailto:hendrahalawa51@gmail.com"><i class="fas fa-envelope"></i></a>
+    <p style="font-size:12px;margin-top:10px">© 2026 Warung Gorengan</p>
+</div>
+
+<script>
+const sidebar=document.getElementById("sidebar");
+const overlay=document.getElementById("overlay");
+
+function openMenu(){
+    sidebar.classList.add("active");
+    overlay.classList.add("active");
+}
+function closeMenu(){
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Promo Gorengan Bergerak</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  height:100vh;
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(180deg,#ff8f00,#ffd54f,#fff8e1);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+/* FRAME HP */
+.phone{
+  width:100%;
+  max-width:420px;
+  height:100vh;
+  background:linear-gradient(160deg,#ff6f00,#ffb300);
+  position:relative;
+  overflow:hidden;
+}
+
+/* HEADER */
+.header{
+  padding:25px 15px;
+  text-align:center;
+  color:white;
+}
+
+.header h1{
+  font-size:26px;
+  font-weight:900;
+  text-shadow:0 4px 10px rgba(0,0,0,.4);
+}
+
+/* SLOGAN */
+.slogan{
+  margin:10px;
+  padding:15px;
+  background:rgba(255,255,255,.9);
+  border-radius:18px;
+  text-align:center;
+  animation:pulse 2.5s infinite;
+}
+
+@keyframes pulse{
+  50%{transform:scale(1.05)}
+}
+
+.slogan h2{color:#e65100;font-size:18px}
+.slogan p{font-size:14px;color:#444}
+
+/* MENU GRID */
+.menu{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  padding:18px;
+}
+
+/* MENU ITEM BERGERAK */
+.menu-item{
+  background:white;
+  border-radius:18px;
+  padding:16px;
+  text-align:center;
+  font-weight:800;
+  font-size:16px;
+  box-shadow:0 8px 16px rgba(0,0,0,.25);
+  animation:floatMenu 3s ease-in-out infinite;
+  transition:.3s;
+}
+
+/* beda gerakan tiap item */
+.menu-item:nth-child(1){animation-delay:0s}
+.menu-item:nth-child(2){animation-delay:.5s}
+.menu-item:nth-child(3){animation-delay:1s}
+.menu-item:nth-child(4){animation-delay:1.5s}
+.menu-item:nth-child(5){animation-delay:2s}
+.menu-item:nth-child(6){animation-delay:2.5s}
+
+@keyframes floatMenu{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-12px) rotate(1deg)}
+  100%{transform:translateY(0)}
+}
+
+/* efek sentuh */
+.menu-item:active{
+  transform:scale(1.15);
+  background:#ffecb3;
+}
+
+/* HARGA */
+.price{
+  text-align:center;
+  font-size:22px;
+  font-weight:900;
+  color:white;
+  animation:blink 1.4s infinite;
+}
+
+@keyframes blink{
+  50%{opacity:.6}
+}
+
+/* FOOTER */
+.footer{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  background:rgba(0,0,0,.7);
+  color:white;
+  text-align:center;
+  padding:12px;
+  font-size:14px;
+}
+
+/* EMOJI JATUH */
+.emoji{
+  position:absolute;
+  top:-40px;
+  font-size:26px;
+  animation:fall linear infinite;
+}
+
+@keyframes fall{
+  to{transform:translateY(120vh) rotate(360deg)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+
+  <div class="header">
+    <h1>🔥 WARUNG GORENGAN 🔥</h1>
+  </div>
+
+  <div class="slogan">
+    <h2>Renyahnya Nendang!</h2>
+    <p>Gorengan hangat, dompet tetap selamat</p>
+  </div>
+
+  <div class="price">💸 MULAI Rp2.000</div>
+
+  <div class="menu">
+    <div class="menu-item">🍢 Tempe</div>
+    <div class="menu-item">🥟 Bakwan</div>
+    <div class="menu-item">🧀 Tahu Isi</div>
+    <div class="menu-item">🍌 Pisang</div>
+    <div class="menu-item">🍵 Teh Manis</div>
+    <div class="menu-item">☕ Kopi</div>
+  </div>
+
+  <div class="footer">
+    ⏰ 09.00 – 21.00 WIB <br>
+    📞 WA 0822-6185-8992
+  </div>
+
+</div>
+
+<script>
+const emo=["🍢","🔥","🍌","🥵","😂"];
+for(let i=0;i<14;i++){
+  let e=document.createElement("div");
+  e.className="emoji";
+  e.innerHTML=emo[Math.floor(Math.random()*emo.length)];
+  e.style.left=Math.random()*100+"%";
+  e.style.animationDuration=(4+Math.random()*5)+"s";
+  document.querySelector(".phone").appendChild(e);
+}
+</script>
+
+</body>
+</html>

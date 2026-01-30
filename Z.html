@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu Makanan</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ===== GLOBAL ===== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f2f4f8;
+}
+
+/* ===== HEADER ===== */
+.header {
+    background: #1e1e2f;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* ===== MENU UTAMA ===== */
+.nav {
+    display: flex;
+    gap: 10px;
+    padding: 12px;
+    overflow-x: auto;
+    background: white;
+}
+.nav::-webkit-scrollbar { display: none; }
+
+.nav-item {
+    flex: 0 0 auto;
+    padding: 10px 18px;
+    border-radius: 25px;
+    background: #eee;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+.nav-item.active {
+    background: #ff9800;
+    color: white;
+}
+
+/* ===== SUBMENU ===== */
+.submenu {
+    display: none;
+    padding: 20px;
+}
+.submenu.active { display: block; }
+
+.submenu-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.submenu-item {
+    background: white;
+    border-radius: 15px;
+    padding: 14px 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+.submenu-item i {
+    font-size: 22px;
+    color: #ff9800;
+    display: block;
+    margin-bottom: 6px;
+}
+.submenu-item:hover {
+    transform: scale(1.05);
+}
+
+/* ===== KONTAK ===== */
+.contact-section {
+    background: linear-gradient(135deg, #1e1e2f, #2b2b45);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+.contact-box {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.contact-item {
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: 0.4s;
+}
+.contact-item i {
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+.contact-item:hover {
+    transform: scale(1.1);
+}
+.wa { background: #25D366; }
+.fb { background: #1877F2; }
+.gm { background: #EA4335; }
+
+/* ===== FOOTER ===== */
+.footer {
+    background: #1e1e2f;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+.footer-divider {
+    width: 80px;
+    height: 4px;
+    background: #ff9800;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">🍽 Jenis Layanan</div>
+
+<!-- MENU UTAMA -->
+<div class="nav">
+    <div class="nav-item active" onclick="showMenu('gorengan', this)">
+        <i class="fas fa-utensils"></i> Gorengan
+    </div>
+    <div class="nav-item" onclick="showMenu('minuman', this)">
+        <i class="fas fa-mug-hot"></i> Minuman
+    </div>
+    <div class="nav-item" onclick="showMenu('favorit', this)">
+        <i class="fas fa-star"></i> Favorit
+    </div>
+</div>
+
+<!-- SUBMENU -->
+<div class="submenu active" id="gorengan">
+    <div class="submenu-content">
+        <div class="submenu-item"><i class="fas fa-cookie"></i>Bakwan</div>
+        <div class="submenu-item"><i class="fas fa-cheese"></i>Tahu</div>
+        <div class="submenu-item"><i class="fas fa-leaf"></i>Tempe</div>
+        <div class="submenu-item"><i class="fas fa-fire"></i>Risoles</div>
+    </div>
+</div>
+
+<div class="submenu" id="minuman">
+    <div class="submenu-content">
+        <div class="submenu-item"><i class="fas fa-glass-water"></i>Es Teh</div>
+        <div class="submenu-item"><i class="fas fa-lemon"></i>Es Jeruk</div>
+        <div class="submenu-item"><i class="fas fa-mug-hot"></i>Kopi</div>
+        <div class="submenu-item"><i class="fas fa-wine-glass"></i>Segar Sari</div>
+    </div>
+</div>
+
+<div class="submenu" id="favorit">
+    <div class="submenu-content">
+        <div class="submenu-item"><i class="fas fa-heart"></i>Best Seller</div>
+        <div class="submenu-item"><i class="fas fa-box"></i>Paket Hemat</div>
+    </div>
+</div>
+
+<!-- KONTAK -->
+<div class="contact-section">
+    <h2>📞 Hubungi Kami</h2>
+    <div class="contact-box">
+  <a href="https://api.whatsapp.com/send?phone=6282261858992&text=Halo%20saya%20ingin%20pesan"
+   class="contact-item wa"
+   target="_blank"
+   rel="noopener">
+   <i class="fab fa-whatsapp"></i>
+   WhatsApp
+</a>
+        <a href="https://facebook.com/Hendra" class="contact-item fb" target="_blank">
+            <i class="fab fa-facebook"></i> Facebook
+    <a href="https://mail.google.com/mail/?view=cm&to=hendrahalawa51@gmail.com"
+   target="_blank"
+   class="contact-item gm">
+   <i class="fas fa-envelope"></i>
+   Gmail
+</a>
+    
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    <h3>✨ Terima Kasih ✨</h3>
+    <p>Semoga menu dan layanan kami memuaskan Anda</p>
+    <div class="footer-divider"></div>
+    <p>© 2026 • Dibuat dengan ❤️</p>
+</footer>
+
+<script>
+function showMenu(id, el) {
+    document.querySelectorAll(".nav-item").forEach(i => i.classList.remove("active"));
+    document.querySelectorAll(".submenu").forEach(s => s.classList.remove("active"));
+
+    el.classList.add("active");
+    document.getElementById(id).classList.add("active");
+}
+</script>
+
+</body>
+</html>

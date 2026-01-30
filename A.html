@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warung Nusantara</title>
+
+<!-- ICON -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+/* ===== BACKGROUND ANIMASI ===== */
+body{
+  min-height:100vh;
+  overflow-x:hidden;
+  color:white;
+  background: linear-gradient(
+    -45deg,
+    #ff9800,
+    #ff5722,
+    #e91e63,
+    #9c27b0,
+    #2196f3,
+    #00bcd4
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* ===== NAV SLIDE ===== */
+nav{
+  position:fixed;
+  top:0;
+  left:-260px;
+  width:260px;
+  height:100%;
+  background:rgba(0,0,0,0.85);
+  padding:20px;
+  transition:0.4s;
+  z-index:999;
+}
+
+nav.active{left:0;}
+
+nav h2{
+  text-align:center;
+  color:#ffeb3b;
+  margin-bottom:20px;
+}
+
+nav a{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px;
+  color:white;
+  text-decoration:none;
+  margin-bottom:12px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.15);
+  transition:0.3s;
+}
+
+nav a i{
+  animation:pulse 1.4s infinite;
+}
+
+nav a:hover{
+  background:#ff9800;
+}
+
+/* ===== MENU BUTTON ===== */
+.menu-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  font-size:26px;
+  cursor:pointer;
+  z-index:1000;
+  animation:bounce 2s infinite;
+}
+
+/* ===== HEADER ===== */
+header{
+  text-align:center;
+  padding:110px 20px 60px;
+  animation:fadeDown 1.2s;
+}
+
+header h1{
+  font-size:40px;
+}
+
+header h1 i{
+  color:#ffeb3b;
+  animation:spin 6s linear infinite;
+}
+
+header p{
+  font-size:18px;
+  margin-top:10px;
+}
+
+/* ===== CONTENT ===== */
+section{
+  padding:30px 20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  padding:25px;
+  border-radius:22px;
+  margin-bottom:25px;
+  animation:zoomIn 1.1s;
+}
+
+.card h2 i{
+  margin-right:8px;
+  color:#ffeb3b;
+  animation:wobble 2s infinite;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:rgba(0,0,0,0.7);
+  padding:30px 20px;
+  text-align:center;
+}
+
+footer a{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin:10px;
+  padding:12px 22px;
+  border-radius:30px;
+  background:linear-gradient(45deg,#ff9800,#e91e63);
+  color:white;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+footer a i{
+  animation:pulse 1.2s infinite;
+}
+
+footer a:hover{
+  transform:scale(1.12);
+}
+
+/* ===== ANIMASI ===== */
+@keyframes bounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-6px);}
+}
+
+@keyframes fadeDown{
+  from{opacity:0;transform:translateY(-30px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes zoomIn{
+  from{opacity:0;transform:scale(0.85);}
+  to{opacity:1;transform:scale(1);}
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.15);}
+  100%{transform:scale(1);}
+}
+
+@keyframes wobble{
+  0%,100%{transform:rotate(0);}
+  25%{transform:rotate(5deg);}
+  75%{transform:rotate(-5deg);}
+}
+
+@keyframes spin{
+  from{transform:rotate(0);}
+  to{transform:rotate(360deg);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU BUTTON -->
+<div class="menu-btn" onclick="toggleMenu()">
+  <i class="fas fa-bars"></i>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <h2><i class="fas fa-utensils"></i> Menu</h2>
+  <a href="A.html"><i class="fas fa-home"></i> Beranda</a>
+  <a href="Menu.html"><i class="fas fa-list"></i> Daftar Menu</a>
+  <a href="Kk.html"><i class="fas fa-tags"></i> Promo</a>
+  <a href="B.html"><i class="fas fa-message"></i>Buruan Pesan</a>
+  <a href="Z.html"><i class="fas fa-phone"></i> Kontak</a>
+</nav>
+
+<!-- HEADER -->
+<header>
+  <h1><i class="fas fa-basket-shopping"></i> Warung Nusantara</h1>
+  <p>Lezat • Berwarna • Menggugah Selera</p>
+</header>
+
+<!-- CONTENT -->
+<section>
+  <div class="card">
+    <h2><i class="fas fa-store"></i> Tentang Warung</h2>
+    <p>Menyediakan makanan rumahan khas Indonesia dengan cita rasa nikmat.</p>
+  </div>
+
+  <div class="card">
+    <h2><i class="fas fa-clock"></i> Jam Buka</h2>
+    <p>Setiap Hari<br>08.00 – 22.00 WIB</p>
+  </div>
+
+  <div class="card">
+    <h2><i class="fas fa-burger"></i> Menu Andalan</h2>
+    <p>
+      🍗 Gorengan<br>
+      🍜 Mie Goreng<br>
+      🍚 Nasi Goreng<br>
+      🧃 Minuman Segar
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <h3>Hubungi Kami</h3>
+  <a href="tel:081234567890"><i class="fas fa-phone"></i> Telp</a>
+  <a href="https://wa.me/6281234567890"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  <a href="https://facebook.com"><i class="fab fa-facebook"></i> Facebook</a>
+  <a href="mailto:warung@gmail.com"><i class="fas fa-envelope"></i> Gmail</a>
+  <p style="margin-top:15px;font-size:14px;">© 2026 Warung Nusantara</p>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GORANGAN ABSURD PRO MAX</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+/* ================= GLOBAL ================= */
+body{
+  margin:0;
+  font-family:'Comic Sans MS','Segoe UI',sans-serif;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,255,255,.15),transparent),
+    radial-gradient(circle at 80% 80%,rgba(255,255,255,.15),transparent),
+    linear-gradient(270deg,#ff0000,#ff9900,#ffff00,#00ff00,#00ffff,#0000ff,#ff00ff);
+  background-size:200% 200%;
+  animation:bgCrazy 10s infinite linear;
+  overflow-x:hidden;
+}
+@keyframes bgCrazy{
+  50%{background-position:100% 50%}
+}
+
+/* ================= NAV ================= */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:999;
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(6px);
+}
+nav a{
+  color:white !important;
+  font-weight:bold;
+  margin:0 8px;
+  position:relative;
+}
+nav a::after{
+  content:"";
+  position:absolute;
+  bottom:-4px;
+  left:0;
+  width:0;
+  height:3px;
+  background:yellow;
+  transition:.3s;
+}
+nav a:hover::after{
+  width:100%;
+}
+
+/* ================= HEADER ================= */
+header{
+  margin-top:100px;
+  text-align:center;
+  color:white;
+  animation:headerFloat 3s infinite ease-in-out;
+}
+@keyframes headerFloat{
+  50%{transform:translateY(-15px)}
+}
+header h1{
+  font-size:46px;
+  text-shadow:0 0 20px yellow;
+}
+header p{
+  font-size:18px;
+}
+
+/* ================= SECTION BOX ================= */
+.section{
+  background:rgba(255,255,255,.9);
+  border-radius:30px;
+  padding:30px;
+  max-width:1000px;
+  margin:60px auto;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
+  opacity:0;
+  transform:translateY(50px);
+  transition:.8s;
+}
+.section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ================= MENU GRID ================= */
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+.menu-card{
+  background:white;
+  border-radius:20px;
+  padding:15px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+  transition:.4s;
+  position:relative;
+}
+.menu-card:hover{
+  transform:rotateX(8deg) rotateY(-8deg) scale(1.05);
+  box-shadow:0 20px 50px rgba(255,100,0,.6);
+}
+.menu-card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:15px;
+}
+.price{
+  color:#ff6f00;
+  font-weight:bold;
+}
+
+/* ================= EMOJI EXPLOSION ================= */
+.pop{
+  position:absolute;
+  animation:explode 1s forwards;
+  font-size:30px;
+}
+@keyframes explode{
+  to{
+    transform:translate(var(--x),var(--y)) scale(.2);
+    opacity:0;
+  }
+}
+
+/* ================= ORDER BUTTON ================= */
+.order-btn{
+  display:inline-block;
+  background:red;
+  color:white;
+  padding:18px 40px;
+  border-radius:60px;
+  font-size:22px;
+  text-decoration:none;
+  animation:orderPulse 1.2s infinite;
+}
+@keyframes orderPulse{
+  50%{box-shadow:0 0 40px yellow;transform:scale(1.15)}
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:black;
+  color:white;
+  padding:40px;
+  text-align:center;
+}
+
+/* ================= FALLING EMOJI ================= */
+.fall{
+  position:fixed;
+  top:-40px;
+  font-size:26px;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  to{transform:translateY(120vh) rotate(360deg)}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="navbar navbar-expand">
+  <div class="container">
+    <a class="navbar-brand text-warning" href="Kk.html">🔥 ABSURD</a>
+    <div class="navbar-nav ms-auto">
+      <a class="nav-link" href="A.html">Beranda</a>
+      <a class="nav-link" href="Menu.html">Menu</a>
+      <a class="nav-link" href="B.html">Pesanan</a>
+      <a class="nav-link" href="Z.html">Kontak</a>
+    </div>
+  </div>
+</nav>
+
+<header id="home">
+  <h1>🍌 GORENGAN NUSANTARA MAX</h1>
+  <p>Renyah • Chaos • Full Animasi</p>
+</header>
+
+<div class="section">
+  <h2>⏰ Jam Buka</h2>
+  <p>Setiap Hari<br><b>09.00 – 21.00 WIB</b></p>
+</div>
+
+<div class="section" id="menu">
+  <h2>🍢 Menu</h2>
+  <div class="menu-grid">
+    <div class="menu-card"><img src="bakwan.jpg"><h5>Bakwan</h5><div class="price">Rp2.000</div></div>
+    <div class="menu-card"><img src="tahu.jpg"><h5>Tahu Isi</h5><div class="price">Rp2.500</div></div>
+    <div class="menu-card"><img src="tempe.jpg"><h5>Tempe</h5><div class="price">Rp2.000</div></div>
+    <div class="menu-card"><img src="pisang.jpg"><h5>Pisang</h5><div class="price">Rp3.000</div></div>
+  </div>
+</div>
+
+<div class="section text-center" id="order">
+  <h2>🛒 Pesan Sekarang</h2>
+  <a class="order-btn" href="https://wa.me/6282261858992">💬 ORDER VIA WA</a>
+</div>
+
+<footer id="contact">
+  <p>☎️ 0822-6185-8992</p>
+  <p>© 2026 GORENGAN ABSURD</p>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+/* reveal on scroll */
+const sections=document.querySelectorAll('.section');
+window.addEventListener('scroll',()=>{
+  sections.forEach(s=>{
+    if(s.getBoundingClientRect().top<window.innerHeight-100){
+      s.classList.add('show');
+    }
+  });
+});
+
+/* emoji explosion */
+document.querySelectorAll('.menu-card').forEach(card=>{
+  card.onclick=()=>{
+    for(let i=0;i<8;i++){
+      let e=document.createElement('div');
+      e.className='pop';
+      e.innerText='🔥';
+      e.style.setProperty('--x',Math.random()*200-100+'px');
+      e.style.setProperty('--y',Math.random()*200-100+'px');
+      card.appendChild(e);
+      setTimeout(()=>e.remove(),1000);
+    }
+    if(navigator.vibrate) navigator.vibrate(40);
+  }
+});
+
+/* falling emoji */
+const emo=['🍌','🍢','🔥','😂','🤯'];
+for(let i=0;i<30;i++){
+  let e=document.createElement('div');
+  e.className='fall';
+  e.innerText=emo[Math.floor(Math.random()*emo.length)];
+  e.style.left=Math.random()*100+'vw';
+  e.style.animationDuration=(4+Math.random()*6)+'s';
+  document.body.appendChild(e);
+}
+</script>
+
+</body>
+</html>
